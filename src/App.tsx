@@ -6,8 +6,8 @@ import BlogDetail from './pages/blog/BlogDetail';
 import Profile from './pages/profile/Profile';
 import BlogCreate from './pages/blog/BlogCreate';
 import ProfileSetup from './pages/auth/ProfileSetup';
-import supabase from './utill/supabase';
 import { useEffect } from 'react';
+import supabase from './utils/supabase';
 
 export default function App() {
   useEffect(() => {

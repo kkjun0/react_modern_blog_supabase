@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Github } from 'lucide-react';
-import supabase from '../../utill/supabase';
+import supabase from '../../utils/supabase';
 
 export default function LoginSocial() {
   const handleGoogleLogin = () => {
