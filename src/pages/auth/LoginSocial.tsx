@@ -1,17 +1,25 @@
-import { Link } from "react-router";
-import { Github } from "lucide-react";
+import { Link } from 'react-router';
+import { Github } from 'lucide-react';
+import supabase from '../../utill/supabase';
 
 export default function LoginSocial() {
   const handleGoogleLogin = () => {
-    console.log("Google login");
+    console.log('Google login');
   };
 
-  const handleGithubLogin = () => {
-    console.log("Github login");
+  const handleGithubLogin = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+      });
+      if (error) throw error;
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleKakaoLogin = () => {
-    console.log("Kakao login");
+    console.log('Kakao login');
   };
 
   return (
@@ -76,17 +84,17 @@ export default function LoginSocial() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-500 mb-4">
-            By signing in, you agree to our{" "}
+            By signing in, you agree to our{' '}
             <a href="#" className="text-gray-900 hover:underline">
               Terms of Service
-            </a>{" "}
-            and{" "}
+            </a>{' '}
+            and{' '}
             <a href="#" className="text-gray-900 hover:underline">
               Privacy Policy
             </a>
           </p>
           <p className="text-gray-600">
-            Don't have an account?{" "}
+            Don't have an account?{' '}
             <Link
               to="/register"
               className="text-gray-900 hover:underline font-medium"
